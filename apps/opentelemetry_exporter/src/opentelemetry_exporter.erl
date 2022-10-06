@@ -46,7 +46,7 @@ export(Tab, Resource, #state{protocol=http_protobuf,
     Address = uri_string:normalize(#{scheme => atom_to_list(Scheme),
                                      host => Host,
                                      port => Port,
-                                     path => <<"/v1/trace">>}),
+                                     path => <<"/v1/traces">>}),
     case httpc:request(post, {Address, [], "application/x-protobuf", Proto}, [], []) of
         {ok, {{_, Code, _}, _, _}} when Code >= 200 andalso Code =< 202 ->
             ok;
